@@ -1,0 +1,38 @@
+<% include partials/header %>
+
+
+<center><h1><%= emp.emp_name %></h1></center>
+
+<div class="thumbnail">
+        <center><p class="caption">Employee ID: <%= emp.emp_id %></p>
+        <p class="caption">Age: <%= emp.age %></p>
+        <p class="caption">Address: <%= emp.address %></p>
+        <p><% if (emp.post_id =='sup'){ %>Post: Supervisor <% } %> </p>
+            <p><% if (emp.post_id =='maint'){ %>Post: Maintaner <% } %> </p>
+            <p><% if (emp.post_id =='dri'){ %>Post: Driver <% } %> </p></center>
+</div>
+
+
+<form class="form-inline" method="POST" action="/addVehicle/<% if (emp.post_id=='sup'){%>1<%}%><% if (emp.post_id=='dri'){%>2<%}%><% if (emp.post_id=='maint'){%>3<%}%>/<%= emp.emp_id %>">
+    <div class="form-group">
+      <label for="email">Add Vehicle:</label>
+      <input type="text" class="form-control"  placeholder="vehicle_id"  name="vehicle_id">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+
+<h1>Vehicles Under <%= emp.emp_name %></h1>
+<div class="row text-center" style="display:flex; flex-wrap:wrap">
+        <% vehicles.forEach(veh=>{ %>
+            <div class="col-md-4 col-sm-6">
+                <div class="thumbnail">
+                    <h4 class="caption"><%= veh.vehicle_id %></h4>
+                    <p><%=veh.vehicle_no %></p>
+                    <p>Seat Capacity: <%=veh.max_seats %></p>
+                    <p><a href="/vehicles/<%=veh.vehicle_id %>" class="btn btn-primary">More Info!</a></p>
+                </div>    
+            </div>
+        <% }); %>
+</div>
+
+<% include partials/footer %>

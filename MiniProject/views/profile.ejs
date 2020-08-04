@@ -1,0 +1,338 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img_profile/fav-icon.png" type="image/x-icon" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>User Profile</title>
+
+        <!-- Icon css link -->
+        <link href="all/vendors_profile/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="all/css_profile/font-awesome.min.css" rel="stylesheet">
+        <link href="all/vendors_profile/linears-icon/style.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="all/css_profile/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Extra plugin css -->
+        <link href="all/vendors_profile/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+        <link href="all/vendors_profile/animate-css/animate.css" rel="stylesheet">
+        
+        <link href="all/css_profile/style.css" rel="stylesheet">
+        <link href="all/css_profile/responsive.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="all/css_profile/colors/default.css" title="default">
+        <link rel="alternate stylesheet" href="all/css_profile/colors/orange.css" title="orange">
+        <link rel="alternate stylesheet" href="all/css_profile/colors/pink.css" title="pink">
+        <link rel="alternate stylesheet" href="all/css_profile/colors/violet.css" title="violet">
+        <link rel="alternate stylesheet" href="all/css_profile/colors/blue.css" title="blue">
+        <link rel="alternate stylesheet" href="all/css_profile/colors/past.css" title="past">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+    </head>
+    <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80" data-scroll-animation="true">
+       
+        <div id="preloader">
+            <div id="preloader_spinner">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        
+        <!--================ Frist hader Area =================-->
+        <header class="header_area">
+            <div class="container">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="/"><i class="fas fa-fire"></i>Vehicle Management System</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                             <li><a href="#skill">Summry</a></li>
+                            <li><a href="#portfolio">Book Tikets</a></li>
+                            <li><a href="#contact">About Us ?</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+            </div>
+        </header>
+        <!--================End Footer Area =================-->
+        
+        <!--================Total container Area =================-->
+        <div class="container main_container">
+            <div class="content_inner_bg row m0">
+                <section class="about_person_area pad" id="about">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="person_img">
+                                <img src="all/img_profile/member/member-1.png" alt="">
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row person_details">
+                                <h3><span>User Details</span></h3>
+                                <div class="person_information">
+                                    <ul>
+                                        <li><h3>User Name : <%= file.user_name%></h3></li>
+                                        <li><h3>Name:  <%= file.name %></h3></li>
+                                        <li><h3>City : <%= file.city %></h3></li>
+                                        <%var today = new Date(); 
+                                        var dd = today.getDate();
+                                        
+                                        var mm = today.getMonth()+1; 
+                                        var yyyy = today.getFullYear();
+                                        if(dd<10) 
+                                        {
+                                            dd='0'+dd;
+                                        } 
+                                        
+                                        if(mm<10) 
+                                        {
+                                            mm='0'+mm;
+                                        } 
+                                        %>
+                                        <li><h3>DOB : <%= file.dob%></h3></li>
+                                        <li><h3>Email :  <%=file.email%></h3></li>
+                                        <li><h3>Contact No : <%=file.mob%></h3></li>
+                                        <li><h3>About :  Etc</h3>></li>
+                                    </ul>
+ 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!---------------------------------------------------start my trip ------------------->
+			
+				
+
+				
+				<!------------------------------------------------start summary ---------------------------------------->
+               <section class="service_area" id="service">
+                    <div class="main_title">
+                        <h2>Summary</h2>
+                        <br>
+                                            <table class="table table-hover">
+                        <thead>
+                                <td>S/No</td>
+                            <td>Source</td>
+                            <td>Destination</td>
+                            <td>Journey Date</td>
+                            <td>VehicleNo</td>
+                            <td>Fare</td>
+                          </thead>
+                          <tbody>
+                            <% var count=1;%>
+                            <% sm.forEach(function(item)
+                            {
+                         %>
+                          <tr>
+                                <td><%=count%></td>
+                            <td><%=item.source%></td>
+                            <td><%=item.destination%></td>
+                            <td><%=item.j_date%></td>
+                            <td><%=item.vehicle_id%></td>
+                            <td><%=item.amount%></td>
+                            <%count=count+1;%>
+                          </tr>
+                          <%});%>
+                        </tbody>
+                      </table>
+
+                    </div>
+                    
+                </section>
+				
+				<!------------------------------------------------end summary ---------------------------------------->
+				
+				<!-----------------------------------------------start book tikets ---------------------------------------->
+                <section class="portfolio_area pad" id="portfolio">
+                    <div class="main_title">
+                        <h2>Book Tikets</h2>
+                    </div>
+                    <div class="porfolio_menu">
+                        <ul class="causes_filter">
+                            <li class="active" data-filter="*"><a href=""></a></li>
+                          <!--  <li data-filter=".photo"><a href="">Cab</a></li>
+                            <li data-filter=".design"><a href="">Bus</a></li>
+                            <li data-filter=".marketing"><a href="">Bike</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="portfolio_list_inner">
+                            
+                            <div class="col-md-12  marketing">
+                                <div class="portfolio_item">
+                                    <div class="portfolio_img">
+                                        <center>
+										<img src="all/img_profile/portfolio/private_bus.jpg" alt="" width="90" height="80">
+                                        </center>
+                                    </div>
+                                    <div class="portfolio_title">
+                                        <a href="/booktikets"><h4>Easy Travlleng</h4></a>
+                                        <h5>Bus Service</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </section>
+				
+				
+				<!------------------------------------------------end book tikets ---------------------------------------->
+                <section class="contact_area pad" id="contact">
+                    <div class="main_title">
+                        <h2>AboutUs ?</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="left_contact_details wow fadeInUp animated">
+                                <div class="contact_title">
+                                    <h3>Contact Info</h3>
+                                </div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the et majori have suffered alteration in some form, by injected humour, Domised words which don't look even slightly believable. If you are going to use a pas of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Address</h4>
+                                        <p>Freedom Way, Jersey City, NJ 07305, USA</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-phone"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Skype</h4>
+                                        <p>sumon.backpiper</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <i class="fa fa-envelope-o"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>Email</h4>
+                                        <p>backpiper.com@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="contact_from_area wow fadeInUp animated">
+                                <div class="contact_title">
+                                    <h3>Send Message</h3>
+                                </div>
+                                <div class="row">
+                                    <form action="contact_process.php" method="post" id="contactForm">
+                                        <div class="form-group col-md-12">
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="First Name*">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="text" class="form-control" name="last" id="last" placeholder="Last Name*">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email*">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <textarea class="form-control" rows="1" id="message" name="message" placeholder="Write Message"></textarea>
+                                        </div>
+                                    </form>
+                                    <div id="success">
+                                        <p>Your text message sent successfully!</p>
+                                    </div>
+                                    <div id="error">
+                                        <p>Sorry! Message not sent. Something went wrong!!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--================Map Area =================-->
+                <div id="mapBox" class="mapBox row m0" 
+                data-lat="37.3818288" 
+                data-lon="-122.0658212" 
+                data-zoom="13"></div>
+                <!--================End Map Area =================-->
+            </div>
+        </div>
+        <!--================End Total container Area =================-->
+        
+        <!--================footer Area =================-->
+        <!--================End footer Area =================-->
+        
+        <div class="envalab-style-switch" id="switch-style">
+            <div class="switch-button" id="toggle-switcher"><i class="fa fa-gears"></i></div>
+            <div class="switched-options">
+                <div class="config-title">Color Panel </div>
+                <ul class="styles">
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("default"),!1' title="default"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("orange"),!1' title="orange"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("pink"),!1' title="pink"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("violet"),!1' title="violet"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("blue"),!1' title="blue"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("past"),!1' title="past"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="all/js_profile/jquery-2.1.4.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="all/js_profile/bootstrap.min.js"></script>
+        <!-- Extra plugin js -->
+        <script src="all/vendors_profile/counter-up/waypoints.min.js"></script>
+        <script src="all/vendors_profile/counter-up/jquery.counterup.min.js"></script>
+        <script src="all/vendors_profile/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="all/vendors_profile/isotope/isotope.pkgd.min.js"></script>
+        <script src="all/vendors_profile/owl-carousel/owl.carousel.min.js"></script>
+        
+        <script src="all/vendors_profile/style-switcher/styleswitcher.js"></script>
+        <script src="all/vendors_profile/style-switcher/switcher-active.js"></script>
+        
+        <script src="all/vendors_profile/animate-css/wow.min.js"></script>
+
+        <!--gmaps Js-->
+       
+        <script src="all/js_profile/gmaps.min.js"></script>
+        
+        <!-- contact js -->
+        <script src="all/js_profilejquery.form.js"></script>
+        <script src="all/js_profile/jquery.validate.min.js"></script>
+        <script src="all/js_profile/contact.js"></script>
+        
+        <script src="all/js_profile/theme.js"></script>
+    </body>
+</html>
