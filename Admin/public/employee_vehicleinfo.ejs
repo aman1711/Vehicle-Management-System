@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>Bus Management</title>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default">
+
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collap" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="/employee/backshow"><i class="fas fa-fire"></i></i>Hi,<%=file.emp_name%> /Back</a>
+
+                </div>
+                 
+                <div class="collapse navbar-collapse" id="collap">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/employee/lagout"><i class="fas fa-sign-in-alt"></i>Logout</a></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </nav>
+<div class="container">
+<div class="jumbotron">
+    <div class="container">
+        <p>Bus Id: <%=selectedvehicle.vehicle_id%></p>
+        <p>Vehicle No: <%=selectedvehicle.vehicle_no%>></p>
+        <p>Max Seats: <%=selectedvehicle.max_seats%></p>
+        <p>Fuel: NAA</p>
+        <%if(file.post_id=='dri')
+        {%>
+         <form action="/employee/updatevehicle/1" method="POST" class="form-inline">
+
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="Fuel" class="sr-only">Update Fuel:</label>
+                <input required="required" type="text" class="form-control" id="inputPassword2" name="fuel" placeholder="Enter Fuel (in L):">
+              </div>
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            
+         </form>
+         <h3><%=massage.xyz%></h3>
+         <%}
+        else if(file.post_id=='maint')
+         { %>
+
+          <form action="/employee/updatevehicle/1" method="POST" class="form-inline">
+
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="Fuel" class="sr-only">Update Fuel:</label>
+              <input required="required" type="text" class="form-control" id="inputPassword2" name="fuel" placeholder="Enter Fuel (in L):">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          </form>
+            <form action="/employee/updatevehicle/2" method="POST" class="form-inline">
+
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Last Serviced Date</label>
+                <input required="required" type="text" class="form-control" id="inputPassword2" name="service" placeholder="dd/mm/yyyy">
+              </div>
+
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+              
+            </form>
+            <h3><%=massage.xyz%></h3>
+        <%}
+        else if(file.post_id=='sup') 
+        {%>
+
+          <form action="/employee/updatevehicle/1" method="POST" class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+              <label for="Fuel" class="sr-only">Update Fuel:</label>
+              <input required="required" type="text" class="form-control" id="inputPassword2" name="fuel" placeholder="Enter Fuel (in L):">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+          </form>
+
+
+            <form action="/employee/updatevehicle/2" method="POST" class="form-inline">
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Last Serviced Date</label>
+                <input required="required" type="text" class="form-control" id="inputPassword2" name="service" placeholder="Last Service Date /dd/mm/yyyy">
+              </div>
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </form>
+
+            <form action="/employee/updatevehicle/3" method="post" class="form-inline">
+              <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Update Garage</label>
+                <input required="required" type="text" class="form-control" id="inputPassword2" name ="grg" placeholder="Update Garage No">
+              </div>
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </form>
+            <h3><%=massage.xyz%></h3>
+          <%}%>
+
+
+
+
+</div>
+</div>
+
+</body>
+
+</html>

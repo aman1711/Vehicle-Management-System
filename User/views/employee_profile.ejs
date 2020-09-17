@@ -1,0 +1,218 @@
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="all/img_profile/fav-icon.png" type="image/x-icon" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Employee Profile</title>
+
+        <!-- Icon css link -->
+        <link href="/all/vendors_profile/material-icon/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="/all/css_profile/font-awesome.min.css" rel="stylesheet">
+        <link href="/all/vendors_profile/linears-icon/style.css" rel="stylesheet">
+        <!-- Bootstrap -->
+        <link href="/all/css_profile/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Extra plugin css -->
+        <link href="/all/vendors_profile/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+        <link href="/all/vendors_profile/animate-css/animate.css" rel="stylesheet">
+        
+        <link href="/all/css_profile/style.css" rel="stylesheet">
+        <link href="all/css_profile/responsive.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="/all/css_profile/colors/default.css" title="default">
+        <link rel="alternate stylesheet" href="/all/css_profile/colors/orange.css" title="orange">
+        <link rel="alternate stylesheet" href="/all/css_profile/colors/pink.css" title="pink">
+        <link rel="alternate stylesheet" href="/all/css_profile/colors/violet.css" title="violet">
+        <link rel="alternate stylesheet" href="/all/css_profile/colors/blue.css" title="blue">
+        <link rel="alternate stylesheet" href="/all/css_profile/colors/past.css" title="past">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+    </head>
+    <body class="light_bg" data-spy="scroll" data-target="#bs-example-navbar-collapse-1" data-offset="80" data-scroll-animation="true">
+       
+        <div id="preloader">
+            <div id="preloader_spinner">
+                <div class="spinner"></div>
+            </div>
+        </div>
+        
+        <!--================ Frist hader Area =================-->
+        <header class="header_area">
+            <div class="container">
+                <nav class="navbar navbar-default">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    <a class="navbar-brand" href="/"><i class="fas fa-fire"></i>Vehicle Management System</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#portfolio">Vehicles Under You</a></li>
+                            <li><a href="/employee/changepassword">Change Password ?</a></li>
+                            <li><a href="/employee/lagout"><i class="fas fa-sign-in-alt"></i>Logout ?</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+            </div>
+        </header>
+        <!--================End Footer Area =================-->
+        
+        <!--================Total container Area =================-->
+        <div class="container main_container">
+            <div class="content_inner_bg row m0">
+                <section class="about_person_area pad" id="about">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="person_img">
+                                <img src="/all/img_profile/member/member-1.png" alt="">
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row person_details">
+                                <h3><span>Employee Details</span></h3>
+                                <div class="person_information">
+                                    <ul>
+                                        <li><h1>Employee ID : <%= file.emp_id %></h1></li>
+                                        <li><h1>Name:  <%= file.emp_name %></h1></li>
+                                      
+                                        <li><h1>Age : <%= file.age%></h1></li>
+                                        <li><h1>Designation ID :  <%=file.post_id%></h1></li>
+                                        <li><h1>Address : <%=file.address%></h1></li>
+                                    </ul>
+ 
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+				
+
+				
+				<!------------------------------------------------start summary ---------------------------------------->				
+				<!------------------------------------------------end summary ---------------------------------------->
+				
+				<!-----------------------------------------------start book tikets ---------------------------------------->
+                <section class="portfolio_area pad" id="portfolio">
+                    <div class="main_title">
+                        <h2>Vehicles Under You</h2>
+                    </div>
+                    <div class="porfolio_menu">
+                        <ul class="causes_filter">
+                            <li class="active" data-filter="*"><a href=""></a></li>
+                          <!--  <li data-filter=".photo"><a href="">Cab</a></li>
+                            <li data-filter=".design"><a href="">Bus</a></li>
+                            <li data-filter=".marketing"><a href="">Bike</a></li>-->
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="portfolio_list_inner">
+                            <% var count=1;%>
+                            <% vehicledata.forEach(function(item)
+                            {%> 
+                            <div class="col-md-4  marketing">
+                                
+                                       
+                                        <div class="portfolio_item">
+                                        <div class="portfolio_img">
+                                        <center>
+										<img src="/all/img_profile/portfolio/private_bus.jpg" alt="" width="90" height="80">
+                                        </center>
+                                        </div>
+                                        <div class="portfolio_title">
+                                        <a href="/employee/vehicleclick/<%=count%>"><h4>Bus Id : <%= item.vehicle_id%></h4></a>
+                                        <h5>Vehicle No  :<%=item.vehicle_no%></h5>
+                                        <% count=count+1;%>
+                                        </div>
+                                        </div>
+                                       
+                          
+                            </div>
+                            <%});%> 
+                            
+                            
+                        </div>
+                    </div>
+                </section>
+				
+				
+				<!------------------------------------------------end book tikets ---------------------------------------->
+
+                <!--================Map Area =================-->
+ 
+                <!--================End Map Area =================-->
+            </div>
+        </div>
+        <!--================End Total container Area =================-->
+        
+        <!--================footer Area =================-->
+        <!--================End footer Area =================-->
+        
+        <div class="envalab-style-switch" id="switch-style">
+            <div class="switch-button" id="toggle-switcher"><i class="fa fa-gears"></i></div>
+            <div class="switched-options">
+                <div class="config-title">Color Panel </div>
+                <ul class="styles">
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("default"),!1' title="default"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("orange"),!1' title="orange"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("pink"),!1' title="pink"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("violet"),!1' title="violet"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("blue"),!1' title="blue"></a>
+                    </li>
+                    <li>
+                        <a href=# onclick='return setActiveStyleSheet("past"),!1' title="past"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="/all/js_profile/jquery-2.1.4.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="/all/js_profile/bootstrap.min.js"></script>
+        <!-- Extra plugin js -->
+        <script src="/all/vendors_profile/counter-up/waypoints.min.js"></script>
+        <script src="/all/vendors_profile/counter-up/jquery.counterup.min.js"></script>
+        <script src="/all/vendors_profile/isotope/imagesloaded.pkgd.min.js"></script>
+        <script src="/all/vendors_profile/isotope/isotope.pkgd.min.js"></script>
+        <script src="/all/vendors_profile/owl-carousel/owl.carousel.min.js"></script>
+        
+        <script src="/all/vendors_profile/style-switcher/styleswitcher.js"></script>
+        <script src="/all/vendors_profile/style-switcher/switcher-active.js"></script>
+        
+        <script src="/all/vendors_profile/animate-css/wow.min.js"></script>
+
+        <!--gmaps Js-->
+       
+        <script src="/all/js_profile/gmaps.min.js"></script>
+        
+        <!-- contact js -->
+        <script src="/all/js_profilejquery.form.js"></script>
+        <script src="/all/js_profile/jquery.validate.min.js"></script>
+        <script src="/all/js_profile/contact.js"></script>
+        
+        <script src="/all/js_profile/theme.js"></script>
+    </body>
+</html>

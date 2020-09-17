@@ -1,0 +1,35 @@
+<% include partials/header %>
+
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Vehicle Management System</h1>
+        <a href="/vehicles/new" class="btn btn-primary btn-lg">Add new Vehicle</a>
+        <a href="/routes/new" class="btn btn-primary btn-lg">Add new Bus Route</a>
+    </div>
+</div>
+
+<div class="row text-center" style="display:flex; flex-wrap:wrap">
+<% vehicles.forEach(veh=>{ %>
+    <div class="col-md-4 col-sm-6">
+        <div class="thumbnail">
+            <% if(veh.v_code == 'bus'){ %>
+            <img src="private_bus.jpg">
+            <% } %>
+            <% if(veh.v_code == 'car'){ %>
+                <img src="private_cab.jpg">
+            <% } %>
+            <% if(veh.v_code == 'bike'){ %>         
+                <img src="private_bike.jpg">
+            <% } %>
+            <h4 class="caption"><%= veh.vehicle_id %></h4>
+            <p><%=veh.vehicle_no %></p>
+            <p>Seat Capacity: <%=veh.max_seats %></p>
+            <p><a href="/vehicles/<%=veh.vehicle_id %>" class="btn btn-primary">More Info!</a></p>
+        </div>    
+    </div>
+<% }); %>
+</div>
+
+
+<% include partials/footer %>

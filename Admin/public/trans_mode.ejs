@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Buse Booking Confirmation</title>
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default">
+
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collap" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="/"><i class="fas fa-fire"></i></i>Hi,<%=file.user_name%></a>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="collap">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logoutpaige"><i class="fas fa-sign-in-alt"></i>Logout</a></li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+        </nav>
+<div class="container">
+<div class="jumbotron">
+    <div class="container">
+        <p>Passenger: <%=booking_data.q18_numberOf18%></p>
+        <p>Total Fare : <%=booking_data.q18_numberOf18*=data.fare%></p>
+        <p>Source: <%=data.source%></p>
+        <p>Destination: <%=data.destination%></p>
+        <p>Date: <%=booking_data.q22_date.day%>-<%=booking_data.q22_date.month%>-<%=booking_data.q22_date.year%></p>
+    
+
+    </div>
+</div>
+<form action="/payment/1" method="POST" class="form-inline">
+        <p>Pay By Card :</p>
+        <div class="form-group">
+            <input maxlength="16" minlength="16" size="16" class="form-control" type="text" name="title" placeholder="Card Number">
+        </div>
+
+        <div class="form-group">
+                <input maxlength="3" size='3' class="form-control" type="text" name="description" placeholder="CVV">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block">Pay</button>
+        </div>
+    </form>
+
+    <form action="/payment/2" method="POST" class="form-inline">
+        <p>Pay By PayTm :</p>
+        <div class="form-group">
+            <input maxlength="10" minlength="10" size="10" class="form-control" type="text" name="title" placeholder="PayTm Number">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block">Pay</button>
+        </div>
+    </form>
+
+
+    <form action="/payment/3" method="POST" class="form-inline">
+        <p>Pay By UPI:</p>
+        <div class="form-group">
+            <input maxlength="20" minlength="5" size="20" class="form-control" type="text" name="title" placeholder="UPI ID">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block">Pay</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+.submitBtn{
+	margin-top:50px;
+}
+.form-inline{
+	margin-top: 50px;
+}
+.form-group{
+	margin-left:260px;
+}
+.table-responsive{
+	margin-top: 50px;
+}
+#title{
+	font-size: 20px;
+	margin-top: 50px;
+}
+#screen{
+	width:91%;
+	border:1px solid #000;
+	text-align: center;
+	margin-left: 7%;
+	margin-top: 50px;
+	background-color: #7662FC;
+}
+#table-screen{
+	margin-top: 50px;
+	margin-left:50px;
+	border-spacing: 10px;
+  	border-collapse: separate;
+}
+#table-screen-row{
+	margin-top:10px;
+}
+.screen-map{
+	margin-left: 50%;
+	margin-top:-50px;
+}
+.reserved-seat{
+	margin-left:4px;
+	/*content: '';*/
+    /*background: url('../img/reserved-seat.png');*/
+}
+.empty-seat{
+	cursor: pointer;
+	/*content: url('../img/empty-seat.png')*/
+}
+.booked-seat{
+	cursor: pointer;
+	content: url('../img/booked-seat.png');
+}
+.error{
+  font-size: 20px;
+  font-weight: 700;
+  font-family: monospace;
+
+}
